@@ -1,6 +1,18 @@
 Website to Replicate:
 https://vizuara-dot-ai.vercel.app/ai-labs/student-projects/digi-yatra
+
 Steps:
 Visit the website and analyze its features, navigation, and workflows.
 Replicate the workflow using your preferred tech stack (ReactJS, Node.js, Django, etc.).
 Deploy the website and submit its link.
+
+Tech Stack:
+Frontend: React.js
+Backend: Node.js/Express or Django
+Database: MongoDB/PostgreSQL
+Deployment: Vercel/Heroku
+
+Basic Workflow:
+Clone the repository structure.
+Develop reusable components in React (e.g., Header, Footer, Forms).
+Set up routing using React Router.
