@@ -1,0 +1,77 @@
+Decision Tree Visualization: Install D3.js:
+npm install d3
+
+DecisionTree.js:
+import React, { useEffect, useRef } from "react";
+import * as d3 from "d3";
+const DecisionTree = () => {
+  const svgRef = useRef();
+  useEffect(() => {
+    const data = {
+      name: "Start",
+      children: [
+        { name: "Sunny", children: [{ name: "Go for a walk" }] },
+        { name: "Rainy", children: [{ name: "Stay indoors" }] },
+      ],
+    };
+    const svg = d3.select(svgRef.current);
+    const treeLayout = d3.tree().size([400, 200]);
+    const root = d3.hierarchy(data);
+    treeLayout(root);
+    svg.selectAll("circle")
+      .data(root.descendants())
+      .join("circle")
+      .attr("cx", (d) => d.x)
+      .attr("cy", (d) => d.y)
+      .attr("r", 10)
+      .style("fill", "steelblue");
+    svg.selectAll("line")
+      .data(root.links())
+      .join("line")
+      .attr("x1", (d) => d.source.x)
+      .attr("y1", (d) => d.source.y)
+      .attr("x2", (d) => d.target.x)
+      .attr("y2", (d) => d.target.y)
+      .style("stroke", "black");
+  }, []);
+  return <svg ref={svgRef} width={500} height={300}></svg>;
+};
+export default DecisionTree;
+
+Quiz Example: Use drag-and-drop libraries like react-beautiful-dnd:
+npm install react-beautiful-dnd
+
+QuizComponent.js:
+import React from "react";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+const QuizComponent = () => {
+  const items = ["Sunny", "Rainy"];
+  const onDragEnd = (result) => {
+    console.log(result);
+  };
+  return (
+    <DragDropContext onDragEnd={onDragEnd}>
+      <Droppable droppableId="quiz">
+        {(provided) => (
+          <div {...provided.droppableProps} ref={provided.innerRef}>
+            {items.map((item, index) => (
+              <Draggable key={item} draggableId={item} index={index}>
+                {(provided) => (
+                  <div
+                    ref={provided.innerRef}
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                  >
+                    {item}
+                  </div>
+                )}
+              </Draggable>
+            ))}
+            {provided.placeholder}
+          </div>
+        )}
+      </Droppable>
+    </DragDropContext>
+  );
+};
+export default QuizComponent;
