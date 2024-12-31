@@ -1,0 +1,11 @@
+Objective:
+Develop an interactive web module that explains decision trees to Class 6 and 7 students.
+
+Features to Include:
+Interactive quizzes or drag-and-drop activities for building decision trees.
+Visualizations to demonstrate splits based on decisions.
+Simple real-world examples like "Should I bring an umbrella?" based on weather conditions.
+
+Design Tools:
+Use Figma or Moqups for UI/UX design.
+Develop the module using frameworks like ReactJS or Vue.js for frontend and Node.js or Django for backend.
