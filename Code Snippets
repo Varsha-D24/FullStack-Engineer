@@ -1,0 +1,44 @@
+React.js Basic App Structure:
+npx create-react-app digi-yatra-replica
+cd digi-yatra-replica
+npm install react-router-dom axios
+
+App.js:
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Details from "./pages/Details";
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/details" element={<Details />} />
+      </Routes>
+    </Router>
+  );
+}
+export default App;
+
+Backend API Setup (Node.js):
+mkdir backend
+cd backend
+npm init -y
+npm install express mongoose cors
+
+server.js:
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const app = express();
+app.use(cors());
+app.use(express.json());
+mongoose.connect("mongodb://localhost:27017/digi-yatra", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+app.get("/", (req, res) => {
+  res.send("API is running...");
+});
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
