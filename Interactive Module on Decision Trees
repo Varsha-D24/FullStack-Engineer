@@ -9,3 +9,13 @@ Simple real-world examples like "Should I bring an umbrella?" based on weather c
 Design Tools:
 Use Figma or Moqups for UI/UX design.
 Develop the module using frameworks like ReactJS or Vue.js for frontend and Node.js or Django for backend.
+
+Tech Stack:
+Frontend: React.js (for interactivity)
+Backend: Flask/Django for storing user responses (optional)
+Library for Visualization: D3.js or Chart.js
+
+Features:
+Interactive Explanation: Demonstrate splits and nodes visually.
+Quizzes: Drag-and-drop options to create decisions.
+Real-World Examples: Use simple examples like choosing a snack.
